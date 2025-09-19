@@ -1,0 +1,12 @@
+openai
+anthropic
+transformers
+torch
+langchain
+llama-index
+faiss-cpu
+pgvector
+pinecone-client
+crewai
+langgraph
+streamlit

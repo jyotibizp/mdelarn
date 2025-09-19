@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Platform MVP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏠 Course Navigation</h2>
+            </div>
+            <div class="course-tree" id="courseTree">
+                <div class="loading">Loading course content...</div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="content-header">
+                <div class="breadcrumb" id="breadcrumb"></div>
+            </div>
+            <div class="content-canvas" id="contentCanvas">
+                <div class="welcome-message">
+                    <h1>📚 Loading Course Syllabus...</h1>
+                    <p>Please wait while we load the course content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
