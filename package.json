@@ -1,7 +1,7 @@
 {
   "name": "mdelarn",
   "version": "1.0.0",
-  "description": "E-Learning Platform MVP",
+  "description": "GenAI Bootcamp",
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
