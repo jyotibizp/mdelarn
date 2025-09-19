@@ -26,21 +26,73 @@ body {
     color: white;
     overflow-y: auto;
     flex-shrink: 0;
+    transition: width 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.sidebar.collapsed {
+    width: 50px;
 }
 
 .sidebar-header {
     padding: 1rem;
     background-color: #34495e;
     border-bottom: 1px solid #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.sidebar-header h2 {
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.sidebar-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.sidebar.collapsed .sidebar-toggle {
+    transform: rotate(90deg);
+}
+
+.sidebar-title {
     font-size: 1.2rem;
     font-weight: 500;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-title {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .course-tree {
     padding: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .course-tree {
+    opacity: 0;
+    visibility: hidden;
+    padding: 0;
+    height: 0;
+    overflow: hidden;
 }
 
 .loading {
@@ -118,6 +170,7 @@ body {
     flex-direction: column;
     background-color: white;
     overflow: hidden;
+    transition: margin-left 0.3s ease;
 }
 
 .content-header {

@@ -5,6 +5,8 @@ class ELearningApp {
         this.courseTree = document.getElementById('courseTree');
         this.contentCanvas = document.getElementById('contentCanvas');
         this.breadcrumb = document.getElementById('breadcrumb');
+        this.sidebar = document.getElementById('sidebar');
+        this.sidebarToggle = document.getElementById('sidebarToggle');
 
         // Icon mappings for different file types
         this.fileIcons = {
@@ -522,9 +524,52 @@ class ELearningApp {
             </div>
         `;
     }
+
+    initializeSidebarToggle() {
+        // Restore saved state from localStorage
+        const savedState = localStorage.getItem('sidebarCollapsed');
+        if (savedState === 'true') {
+            this.sidebar.classList.add('collapsed');
+            this.sidebarToggle.querySelector('.toggle-icon').textContent = '☰';
+            this.sidebarToggle.setAttribute('title', 'Expand Sidebar');
+        }
+
+        // Add click event listener to the toggle button
+        this.sidebarToggle.addEventListener('click', () => {
+            this.toggleSidebar();
+        });
+
+        // Add keyboard shortcut (Ctrl/Cmd + B)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+                e.preventDefault();
+                this.toggleSidebar();
+            }
+        });
+    }
+
+    toggleSidebar() {
+        this.sidebar.classList.toggle('collapsed');
+
+        // Update toggle icon
+        const toggleIcon = this.sidebarToggle.querySelector('.toggle-icon');
+        if (this.sidebar.classList.contains('collapsed')) {
+            toggleIcon.textContent = '☰';
+            this.sidebarToggle.setAttribute('title', 'Expand Sidebar');
+        } else {
+            toggleIcon.textContent = '☰';
+            this.sidebarToggle.setAttribute('title', 'Collapse Sidebar');
+        }
+
+        // Save state to localStorage
+        localStorage.setItem('sidebarCollapsed', this.sidebar.classList.contains('collapsed'));
+    }
 }
 
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new ELearningApp();
+    const app = new ELearningApp();
+
+    // Initialize sidebar toggle functionality
+    app.initializeSidebarToggle();
 });

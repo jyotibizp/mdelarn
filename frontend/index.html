@@ -8,9 +8,12 @@
 </head>
 <body>
     <div class="app-container">
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h2>🏠 Course Navigation</h2>
+                <button class="sidebar-toggle" id="sidebarToggle" title="Toggle Sidebar">
+                    <span class="toggle-icon">☰</span>
+                </button>
+                <h2 class="sidebar-title">🏠 Course Navigation</h2>
             </div>
             <div class="course-tree" id="courseTree">
                 <div class="loading">Loading course content...</div>
